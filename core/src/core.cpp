@@ -197,6 +197,8 @@ int sdrpp_main(int argc, char* argv[]) {
     defConfig["moduleInstances"]["SoapySDR Source"]["enabled"] = true;
     defConfig["moduleInstances"]["SpyServer Source"]["module"] = "spyserver_source";
     defConfig["moduleInstances"]["SpyServer Source"]["enabled"] = true;
+    defConfig["moduleInstances"]["USRP Source"]["module"] = "usrp_source";
+    defConfig["moduleInstances"]["USRP Source"]["enabled"] = true;
 
     defConfig["moduleInstances"]["Audio Sink"] = "audio_sink";
     defConfig["moduleInstances"]["Network Sink"] = "network_sink";

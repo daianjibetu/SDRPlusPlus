@@ -16,8 +16,9 @@ else (MSVC)
     find_package(PkgConfig)
 
     pkg_check_modules(LIBUHD REQUIRED uhd)
+    find_package(Boost COMPONENTS system REQUIRED)
 
-    target_include_directories(usrp_source PRIVATE ${LIBUHD_INCLUDE_DIRS})
-    target_link_directories(usrp_source PRIVATE ${LIBUHD_LIBRARY_DIRS})
-    target_link_libraries(usrp_source PRIVATE ${LIBUHD_LIBRARIES})
+    target_include_directories(usrp_source PRIVATE ${LIBUHD_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
+    target_link_directories(usrp_source PRIVATE ${LIBUHD_LIBRARY_DIRS} ${Boost_LIBRARY_DIRS})
+    target_link_libraries(usrp_source PRIVATE ${LIBUHD_LIBRARIES} ${Boost_LIBRARIES})
 endif ()
