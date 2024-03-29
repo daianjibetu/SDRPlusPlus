@@ -578,14 +578,16 @@ void MainWindow::draw() {
         if (wheel != 0 && (gui::waterfall.mouseInFFT || gui::waterfall.mouseInWaterfall)) {
             // Select factor depending on modifier keys
             double interval;
-            if (ImGui::IsKeyDown(ImGuiKey_LeftShift)) {
-                interval = vfo->snapInterval * 10.0;
-            }
-            else if (ImGui::IsKeyDown(ImGuiKey_LeftAlt)) {
-                interval = vfo->snapInterval * 0.1;
-            }
-            else {
-                interval = vfo->snapInterval;
+            if (vfo != NULL) {
+                if (ImGui::IsKeyDown(ImGuiKey_LeftShift)) {
+                    interval = vfo->snapInterval * 10.0;
+                }
+                else if (ImGui::IsKeyDown(ImGuiKey_LeftAlt)) {
+                    interval = vfo->snapInterval * 0.1;
+                }
+                else {
+                    interval = vfo->snapInterval;
+                }
             }
 
             double nfreq;
